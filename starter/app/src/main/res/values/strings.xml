@@ -8,4 +8,7 @@
     <string name="enter_password">Enter Password</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
+    <string name="say_goodbye_to_amazon_com">Say Goodbye To Amazon.com!</string>
+    <string name="welcome_to_the_shoe_store">Welcome To The Shoe Store!</string>
+    <string name="continue_text">Continue</string>
 </resources>
