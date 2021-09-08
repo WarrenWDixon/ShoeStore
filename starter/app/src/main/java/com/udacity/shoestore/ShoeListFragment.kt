@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.udacity.shoestore.databinding.FragmentInstructionBinding
+import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,11 +30,22 @@ class ShoeListFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    private var _binding : FragmentShoeListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+        //return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+        _binding = FragmentShoeListBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
