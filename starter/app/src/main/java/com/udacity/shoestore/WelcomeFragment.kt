@@ -28,14 +28,7 @@ class WelcomeFragment : Fragment() {
         binding.continueButton.setOnClickListener { v: View ->
             v.findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragment3ToInstructionFragment())
         }
-        /*
 
-
-               binding.playButton.setOnClickListener { v: View ->
-                   v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
-               }
-                */
-        //val view = binding.root
         return binding.root
     }
 

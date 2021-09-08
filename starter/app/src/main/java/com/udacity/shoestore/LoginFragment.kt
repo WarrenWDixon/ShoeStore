@@ -34,13 +34,6 @@ class LoginFragment : Fragment() {
             v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment32())
         }
 
-        /*
-
-
-        binding.playButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
-        }
-         */
         return binding.root
     }
 
