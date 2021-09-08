@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.udacity.shoestore.databinding.FragmentLoginBinding
-import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,7 +38,7 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_login, container, false)
-        val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(
+        val binding: FragmentLoginBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_login, container, false)
         return binding.root
 
