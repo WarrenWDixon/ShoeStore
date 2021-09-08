@@ -37,7 +37,7 @@ class ShoeListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_shoe_list, container, false)
-        val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(
+        val binding: FragmentShoeListBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_shoe_list, container, false)
         return binding.root
 
