@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 
@@ -25,6 +26,21 @@ class LoginFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_login, container, false)
         val binding: FragmentLoginBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_login, container, false)
+       binding.createAccountButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment32())
+        }
+
+        binding.loginButton.setOnClickListener { v:  View->
+            v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment32())
+        }
+
+        /*
+
+
+        binding.playButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
+         */
         return binding.root
     }
 

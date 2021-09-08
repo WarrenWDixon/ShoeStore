@@ -10,11 +10,19 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_welcomeFragment2"
-            app:destination="@id/welcomeFragment2" />
+            android:id="@+id/action_loginFragment_to_welcomeFragment32"
+            app:destination="@id/welcomeFragment3" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment2"
+        android:id="@+id/welcomeFragment3"
         android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment3_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.InstructionFragment"
+        android:label="InstructionFragment" />
 </navigation>
