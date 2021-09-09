@@ -9,8 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import timber.log.Timber
 import com.udacity.shoestore.databinding.ActivityMainBinding
+import com.udacity.shoestore.models.Shoe
+
 private lateinit var binding: ActivityMainBinding
 
 /* class MainActivity : AppCompatActivity() {
@@ -35,6 +36,18 @@ class MainActivity : AppCompatActivity() {
        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
+
+
+        val allShoes = mutableListOf<Shoe>(
+
+            Shoe("MC Boot1", 11.0, "HD", "boot 1"),
+            Shoe("MC Boot1", 11.0, "HD", "boot 2"),
+            Shoe("MC Boot1", 11.0, "HD", "boot 3")
+        )
+        var myShoeModel : ShoeViewModel = ShoeViewModel()
+        myShoeModel.addShoe()
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
