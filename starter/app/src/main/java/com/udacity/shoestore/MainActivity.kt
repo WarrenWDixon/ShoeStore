@@ -37,15 +37,13 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-
-        val allShoes = mutableListOf<Shoe>(
-
-            Shoe("MC Boot1", 11.0, "HD", "boot 1"),
-            Shoe("MC Boot1", 11.0, "HD", "boot 2"),
-            Shoe("MC Boot1", 11.0, "HD", "boot 3")
-        )
+        val shoe1 = Shoe("MC Boot1", 11.0, "HD", "boot 1")
+        val shoe2 = Shoe("MC Boot2", 10.0, "HD", "boot 2")
+        val shoe3 = Shoe("MC Boot3", 9.0, "HD", "boot 3")
         var myShoeModel : ShoeViewModel = ShoeViewModel()
-        myShoeModel.addShoe()
+        myShoeModel.addShoe(shoe1)
+        myShoeModel.addShoe(shoe2)
+        myShoeModel.addShoe(shoe3)
 
 
     }
