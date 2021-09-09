@@ -15,7 +15,12 @@ import com.udacity.shoestore.models.Shoe
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+var name = ""
+var size = ""
+var dblSize = 0.0
+var company = ""
+var description = ""
+val viewModel = ShoeViewModel()
 
 /**
  * A simple [Fragment] subclass.
@@ -40,7 +45,7 @@ class ShoeDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_shoe_detail, container, false)
         val binding: FragmentShoeDetailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-
+        Log.d("WWD", "in shoe detail onCreateView")
         /*
         binding.createAccountButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment32())
@@ -49,18 +54,16 @@ class ShoeDetailFragment : Fragment() {
         binding.cancelBtn.setOnClickListener { v: View ->
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
-        var name = ""
-        var size = 0.0
-        var company = ""
-        var description = ""
-        val viewModel = ShoeViewModel()
+
         binding.saveBtn.setOnClickListener { v: View ->
-            name = binding.shoeNameEt.toString()
-            size = binding.shoeSizeEt.toString().toDouble()
-            company = binding.companyNameEt.toString()
-            description = binding.shoeDescriptionEt.toString()
-            Log.d("WWD", "name: " + name + "  size: " + size + " company: " + company + " desc: " + description)
-            var shoe = Shoe(name, size, company, description)
+            Log.d("WWD", "save button pressed")
+            name = binding.shoeNameEt.text.toString()
+            size = binding.shoeSizeEt.text.toString()
+            dblSize = size.toDouble()
+            company = binding.companyNameEt.text.toString()
+            description = binding.shoeDescriptionEt.text.toString()
+            Log.d("WWD", "name: " + name + "  size: " + dblSize + " company: " + company + " desc: " + description)
+            var shoe = Shoe(name, dblSize, company, description)
             viewModel.addShoe(shoe)
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
