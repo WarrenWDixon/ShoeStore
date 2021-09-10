@@ -61,30 +61,33 @@ class ShoeListFragment : Fragment() {
 
         shoeViewModel.liveList.observe(viewLifecycleOwner, Observer {shoeList ->
             var len = shoeList.size
-            var shoe = shoeList[len - 1]
-            var shoeName = shoe.name
-            var shoeSize = shoe.size
-            var shoeCompany = shoe.company
-            var shoeDescription = shoe.description
+            //var shoe = shoeList[len - 1]
+            if (len  > 0) {
+                for (shoe in shoeList) {
+                    var shoeName = shoe.name
+                    var shoeSize = shoe.size
+                    var shoeCompany = shoe.company
+                    var shoeDescription = shoe.description
 
-            //
-            // var view : View?  = getView()
-            var view : View = binding.shoeListLayout
-            (view as? ViewGroup)?.let {
-                //View.inflate(context, R.layout.card_view, it)
-                //val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
-                //  inflater, R.layout.card_view, container, true)
-                val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
-                    inflater, R.layout.card_view, view, true)
-                bindingCardView.shoeName.text = shoeName
-                bindingCardView.shoeSize.text = shoeSize.toString()
-                bindingCardView.shoeCompany.text = shoeCompany
-                bindingCardView.shoeDescription.text = shoeDescription
+                    //
+                    // var view : View?  = getView()
+                    var view: View = binding.shoeListLayout
+                    (view as? ViewGroup)?.let {
+                        //View.inflate(context, R.layout.card_view, it)
+                        //val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
+                        //  inflater, R.layout.card_view, container, true)
+                        val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
+                            inflater, R.layout.card_view, view, true
+                        )
+                        bindingCardView.shoeName.text = shoeName
+                        bindingCardView.shoeSize.text = shoeSize.toString()
+                        bindingCardView.shoeCompany.text = shoeCompany
+                        bindingCardView.shoeDescription.text = shoeDescription
+                    }
+                }
+                }
+            })
 
-            }
-
-
-        })
         return binding.root
 
     }
