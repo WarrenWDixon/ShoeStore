@@ -43,6 +43,10 @@ class ShoeListFragment : Fragment() {
         binding.fab.setOnClickListener{ v: View ->
             binding.fab.findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment2())
         }
+        binding.shoeName.text = "MC Boots"
+        binding.shoeSize.text = "11"
+        binding.shoeCompany.text = "Harley Davidson"
+        binding.shoeDescription.text = "Finest Motorcycle Boots!"
         return binding.root
 
     }
