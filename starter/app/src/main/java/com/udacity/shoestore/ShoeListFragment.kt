@@ -67,10 +67,10 @@ class ShoeListFragment : Fragment() {
             var len = shoeList.size
 
             var shoe2 = shoeList[len - 1]
-            var n1 = shoe2.name
-            var s1 = shoe2.size
-            var c1 = shoe2.company
-            var d1 = shoe2.description
+            var shoeName = shoe2.name
+            var shoeSize = shoe2.size
+            var shoeCompany = shoe2.company
+            var shoeDescription = shoe2.description
             /* binding.shoeName.text = n1
             binding.shoeSize.text = s1.toString()
             binding.shoeCompany.text = c1
@@ -80,6 +80,10 @@ class ShoeListFragment : Fragment() {
                 //View.inflate(context, R.layout.card_view, it)
                 val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
                   inflater, R.layout.card_view, container, true)
+                bindingCardView.shoeName.text = shoeName
+                bindingCardView.shoeSize.text = shoeSize.toString()
+                bindingCardView.shoeCompany.text = shoeCompany
+                bindingCardView.shoeDescription.text = shoeDescription
             }
 
 
