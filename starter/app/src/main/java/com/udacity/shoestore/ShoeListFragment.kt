@@ -29,6 +29,7 @@ private const val ARG_PARAM2 = "param2"
 class ShoeListFragment : Fragment() {
 
     private lateinit var shoeViewModel: ShoeViewModel
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -58,7 +59,8 @@ class ShoeListFragment : Fragment() {
         binding.shoeCompany.text = "Harley Davidson"
         binding.shoeDescription.text = "Finest Motorcycle Boots!"
         Log.d("WWD", "just before observer call")
-        shoeViewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+
         shoeViewModel.liveList.observe(viewLifecycleOwner, Observer {shoeList ->
             Log.d("WWD", "in observer block it: ")
             var len = shoeList.size

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
@@ -20,7 +21,7 @@ var size = ""
 var dblSize = 0.0
 var company = ""
 var description = ""
-val viewModel = ShoeViewModel()
+private lateinit var shoeViewModel: ShoeViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -64,7 +65,8 @@ class ShoeDetailFragment : Fragment() {
             description = binding.shoeDescriptionEt.text.toString()
             Log.d("WWD", "name: " + name + "  size: " + dblSize + " company: " + company + " desc: " + description)
             var shoe = Shoe(name, dblSize, company, description)
-            viewModel.addShoe(shoe)
+            shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+            shoeViewModel.addShoe(shoe)
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
         return binding.root

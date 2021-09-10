@@ -1,14 +1,15 @@
 package com.udacity.shoestore
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
-public class ShoeViewModel : ViewModel() {
+public class ShoeViewModel(): ViewModel() {
 
-    val  liveList =  MutableLiveData<MutableList<Shoe>>()
-    private val mListShoes = ArrayList<Shoe>()
+    val  liveList =  MutableLiveData<ArrayList<Shoe>>()
+    private var mListShoes = ArrayList<Shoe>()
 
     fun addShoe(newShoe: Shoe) {
         Log.d("WWD", "in addShoe before list is " + liveList.value)
