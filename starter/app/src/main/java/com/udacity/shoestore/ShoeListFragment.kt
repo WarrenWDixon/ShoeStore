@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.udacity.shoestore.databinding.CardViewBinding
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
@@ -54,10 +55,10 @@ class ShoeListFragment : Fragment() {
             binding.fab.findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment2())
         }
         Log.d("WWD", "in ShoeListFragment onCreateView")
-        binding.shoeName.text = "MC Boots"
-        binding.shoeSize.text = "11"
-        binding.shoeCompany.text = "Harley Davidson"
-        binding.shoeDescription.text = "Finest Motorcycle Boots!"
+        //binding.shoeName.text = "MC Boots"
+        //binding.shoeSize.text = "11"
+       // binding.shoeCompany.text = "Harley Davidson"
+       // binding.shoeDescription.text = "Finest Motorcycle Boots!"
         Log.d("WWD", "just before observer call")
         shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
 
@@ -70,10 +71,18 @@ class ShoeListFragment : Fragment() {
             var s1 = shoe2.size
             var c1 = shoe2.company
             var d1 = shoe2.description
-            binding.shoeName.text = n1
+            /* binding.shoeName.text = n1
             binding.shoeSize.text = s1.toString()
             binding.shoeCompany.text = c1
-            binding.shoeDescription.text = d1
+            binding.shoeDescription.text = d1 */
+            var view : View?  = getView()
+            (view as? ViewGroup)?.let {
+                //View.inflate(context, R.layout.card_view, it)
+                val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
+                  inflater, R.layout.card_view, container, true)
+            }
+
+
         })
         return binding.root
 
