@@ -14,9 +14,10 @@ public class ShoeViewModel : ViewModel() {
     private val mShoesLiveData = MutableLiveData<List<Shoe>>()
 
     fun addShoe(newShoe: Shoe) {
+        Log.d("WWD", "in addShoe before list is " + mShoesLiveData.value)
         mListShoes.add(newShoe)
         mShoesLiveData.value = mListShoes
-        Log.d("WWD", "in addShoe the list is now" + mListShoes)
+        Log.d("WWD", "in addShoe the list is now " + mShoesLiveData.value)
     }
 
 
