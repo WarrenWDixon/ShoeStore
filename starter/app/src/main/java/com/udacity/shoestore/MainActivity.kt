@@ -9,8 +9,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import com.udacity.shoestore.models.Shoe
+import kotlinx.android.synthetic.main.fragment_login.*
 
 private lateinit var binding: ActivityMainBinding
 
@@ -32,15 +34,17 @@ class MainActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         //drawerLayout = binding.drawerLayout
         val navController = this.findNavController(R.id.myNavHostFragment)
-
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.loginFragment , R.id.shoeListFragment))
        //NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
        //appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
-
-        NavigationUI.setupActionBarWithNavController(this, navController)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-
-
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         //NavigationUI.setupWithNavController(binding.toolbar, navController)
+
+
+        //NavigationUI.setupActionBarWithNavController(this, navController)
+
+
+
 
         /* val shoe1 = Shoe("MC Boot1", 11.0, "HD", "boot 1")
         val shoe2 = Shoe("MC Boot2", 10.0, "HD", "boot 2")
