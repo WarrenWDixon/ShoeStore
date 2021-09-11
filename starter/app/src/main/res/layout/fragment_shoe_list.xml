@@ -9,7 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/youWinBackground">
-
+        <data>
+            <variable
+                name="shoeViewModel"
+                type="com.udacity.shoestore.ShoeViewModel" />
+        </data>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
