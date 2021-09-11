@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.LoginFragment">
-
+    <data>
+        <variable name="shoeViewModel" type="com.udacity.shoestore.ShoeViewModel">
+        </variable>
+    </data>
     <LinearLayout
         android:id="@+id/shoeDetailFragment"
         android:layout_width="match_parent"
