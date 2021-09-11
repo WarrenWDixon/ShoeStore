@@ -30,12 +30,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        drawerLayout = binding.drawerLayout
+        //drawerLayout = binding.drawerLayout
         val navController = this.findNavController(R.id.myNavHostFragment)
-       NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-       appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
 
-        NavigationUI.setupWithNavController(binding.navView, navController)
+       //NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+       //appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+
+        NavigationUI.setupActionBarWithNavController(this, navController)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+
+
+        //NavigationUI.setupWithNavController(binding.toolbar, navController)
 
         /* val shoe1 = Shoe("MC Boot1", 11.0, "HD", "boot 1")
         val shoe2 = Shoe("MC Boot2", 10.0, "HD", "boot 2")
