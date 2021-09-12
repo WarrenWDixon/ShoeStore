@@ -47,10 +47,7 @@ class ShoeListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
-
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_shoe_list, container, false)
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_shoe_list, container, false)
         binding.fab.setOnClickListener{ v: View ->
@@ -61,7 +58,6 @@ class ShoeListFragment : Fragment() {
 
         shoeViewModel.liveList.observe(viewLifecycleOwner, Observer {shoeList ->
             var len = shoeList.size
-            //var shoe = shoeList[len - 1]
             if (len  > 0) {
                 for (shoe in shoeList) {
                     var shoeName = shoe.name
@@ -73,9 +69,6 @@ class ShoeListFragment : Fragment() {
                     // var view : View?  = getView()
                     var view: View = binding.shoeListLayout
                     (view as? ViewGroup)?.let {
-                        //View.inflate(context, R.layout.card_view, it)
-                        //val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
-                        //  inflater, R.layout.card_view, container, true)
                         val bindingCardView: CardViewBinding = DataBindingUtil.inflate(
                             inflater, R.layout.card_view, view, true
                         )

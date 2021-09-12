@@ -37,7 +37,6 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 android:textSize="20sp"
-                android:text="11"
                 android:textStyle="bold" />
 
             <TextView
@@ -47,7 +46,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:text="Harley Davidson"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -58,7 +56,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:text="Really Long Lasting Boots"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>

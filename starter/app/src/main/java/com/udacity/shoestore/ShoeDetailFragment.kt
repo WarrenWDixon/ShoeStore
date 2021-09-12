@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
@@ -17,10 +18,6 @@ import com.udacity.shoestore.models.Shoe
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 var name = ""
-var size = ""
-var dblSize = 0.0
-var company = ""
-var description = ""
 private lateinit var shoeViewModel: ShoeViewModel
 
 /**
@@ -44,31 +41,23 @@ class ShoeDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_shoe_detail, container, false)
         val binding: FragmentShoeDetailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-        Log.d("WWD", "in shoe detail onCreateView")
-        /*
-        binding.createAccountButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment32())
-        }
-         */
         binding.cancelBtn.setOnClickListener { v: View ->
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
 
-        binding.saveBtn.setOnClickListener { v: View ->
-            Log.d("WWD", "save button pressed")
-            name = binding.shoeNameEt.text.toString()
-            size = binding.shoeSizeEt.text.toString()
-            dblSize = size.toDouble()
-            company = binding.companyNameEt.text.toString()
-            description = binding.shoeDescriptionEt.text.toString()
-            Log.d("WWD", "name: " + name + "  size: " + dblSize + " company: " + company + " desc: " + description)
-            var shoe = Shoe(name, dblSize, company, description)
-            shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
-            shoeViewModel.addShoe(shoe)
-            v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
-        }
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        binding.shoe = Shoe("", .0,"", "")
+        binding.shoeViewModel = shoeViewModel
+
+        shoeViewModel.returnToListLiveData.observe(viewLifecycleOwner, Observer { returnFlag ->
+            val view = getView()
+            if (view != null && returnFlag) {
+                shoeViewModel.resetReturnToListFlag()
+                view.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
+            }
+
+        })
         return binding.root
     }
 
