@@ -60,6 +60,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:ems="10"
+            android:text="@={`` + shoe.size}"
             android:hint="Enter shoe size here"
             android:inputType="number" />
 

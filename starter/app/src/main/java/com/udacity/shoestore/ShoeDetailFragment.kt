@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
@@ -71,8 +72,17 @@ class ShoeDetailFragment : Fragment() {
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         } */
         shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
-        binding.shoe = Shoe("", 11.0,"", "")
+        binding.shoe = Shoe("", 0.0,"", "")
         binding.shoeViewModel = shoeViewModel
+
+        shoeViewModel.returnToListLiveData.observe(viewLifecycleOwner, Observer { returnFlag ->
+            val view = getView()
+            if (view != null && returnFlag) {
+                shoeViewModel.resetReturnToListFlag()
+                view.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
+            }
+
+        })
         return binding.root
     }
 

@@ -8,6 +8,7 @@
             android:orientation="vertical">
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
+                android:background="@color/colorPrimary "
                 android:layout_height="64dp"
                 android:layout_width="match_parent"/>
             <fragment

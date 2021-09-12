@@ -16,13 +16,16 @@ public class ShoeViewModel(): ViewModel() {
     val  liveList =  MutableLiveData<ArrayList<Shoe>>()
     private var mListShoes = ArrayList<Shoe>()
 
+    private var returnToList = false
+    val returnToListLiveData = MutableLiveData<Boolean>()
+
+
     var size = ""
     var company = ""
     var description = ""
     fun addShoe(newShoe: Shoe) {
         Log.d("WWD", "in addShoe name is " + newShoe.name)
-       // Log.d("WWD", "size is " + size)
-        newShoe.size = 11.0
+        Log.d("WWD", "size is " + newShoe.size)
         Log.d("WWD", "in addShoe company is " + newShoe.company)
         Log.d("WWD", "in addShoe description is " + newShoe.description)
         Log.d("WWD", "in addShoe before list is " + liveList.value)
@@ -30,8 +33,15 @@ public class ShoeViewModel(): ViewModel() {
         mListShoes.add(newShoe)
         liveList.value = mListShoes
         Log.d("WWD", "in addShoe the list is now " + liveList.value)
+
+        returnToList = true
+        returnToListLiveData.value = returnToList
     }
 
+    public fun resetReturnToListFlag() {
+        returnToList = false;
+        returnToListLiveData.value = returnToList
+    }
 
     /*override fun onCleared() {
         super.onCleared()
