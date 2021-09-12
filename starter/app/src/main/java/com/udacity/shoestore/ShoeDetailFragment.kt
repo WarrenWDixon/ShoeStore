@@ -72,7 +72,7 @@ class ShoeDetailFragment : Fragment() {
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         } */
         shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
-        binding.shoe = Shoe("", 0.0,"", "")
+        binding.shoe = Shoe("", .0,"", "")
         binding.shoeViewModel = shoeViewModel
 
         shoeViewModel.returnToListLiveData.observe(viewLifecycleOwner, Observer { returnFlag ->
