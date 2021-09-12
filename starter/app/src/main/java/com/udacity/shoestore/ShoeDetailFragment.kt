@@ -56,7 +56,7 @@ class ShoeDetailFragment : Fragment() {
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
 
-        binding.saveBtn.setOnClickListener { v: View ->
+        /* binding.saveBtn.setOnClickListener { v: View ->
             Log.d("WWD", "save button pressed")
             name = binding.shoeNameEt.text.toString()
             size = binding.shoeSizeEt.text.toString()
@@ -69,7 +69,7 @@ class ShoeDetailFragment : Fragment() {
             shoeViewModel = ShoeViewModel()
             shoeViewModel.addShoe(shoe)
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
-        }
+        } */
         return binding.root
     }
 

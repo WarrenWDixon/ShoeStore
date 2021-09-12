@@ -10,7 +10,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
-public class ShoeViewModel(): BaseObservable() {
+//public class ShoeViewModel(): BaseObservable() {
+public class ShoeViewModel(): ViewModel() {
 
     val  liveList =  MutableLiveData<ArrayList<Shoe>>()
     private var mListShoes = ArrayList<Shoe>()
@@ -19,11 +20,13 @@ public class ShoeViewModel(): BaseObservable() {
     var company = ""
     var description = ""
     fun addShoe(newShoe: Shoe) {
-        Log.d("WWD", "name is " + name)
-        Log.d("WWD", "size is " + size)
-        Log.d("WWD", "company is " + company)
-        Log.d("WWD", "description is " + description)
+        Log.d("WWD", "in addShoe name is " + newShoe.name)
+       // Log.d("WWD", "size is " + size)
+        newShoe.size = 11.0
+        Log.d("WWD", "in addShoe company is " + newShoe.company)
+        Log.d("WWD", "in addShoe description is " + newShoe.description)
         Log.d("WWD", "in addShoe before list is " + liveList.value)
+
         mListShoes.add(newShoe)
         liveList.value = mListShoes
         Log.d("WWD", "in addShoe the list is now " + liveList.value)
@@ -35,7 +38,7 @@ public class ShoeViewModel(): BaseObservable() {
         Log.i("WWD", "ShowViewModel onCleared called")
     } */
 
-    @get:Bindable
+    /* @get:Bindable
     val nameTextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             // Do nothing.
@@ -53,7 +56,7 @@ public class ShoeViewModel(): BaseObservable() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.nameTextWatcher)
-        }
+        } */
 
 
 
