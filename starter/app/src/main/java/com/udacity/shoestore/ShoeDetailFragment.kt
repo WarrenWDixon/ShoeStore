@@ -70,6 +70,9 @@ class ShoeDetailFragment : Fragment() {
             shoeViewModel.addShoe(shoe)
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         } */
+        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        binding.shoe = Shoe("", 11.0,"", "")
+        binding.shoeViewModel = shoeViewModel
         return binding.root
     }
 
