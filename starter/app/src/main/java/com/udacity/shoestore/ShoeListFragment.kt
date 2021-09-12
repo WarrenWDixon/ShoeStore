@@ -57,7 +57,8 @@ class ShoeListFragment : Fragment() {
             binding.fab.findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment2())
         }
 
-        shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        //shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+        shoeViewModel = ShoeViewModel()
 
         shoeViewModel.liveList.observe(viewLifecycleOwner, Observer {shoeList ->
             var len = shoeList.size

@@ -65,7 +65,8 @@ class ShoeDetailFragment : Fragment() {
             description = binding.shoeDescriptionEt.text.toString()
             Log.d("WWD", "name: " + name + "  size: " + dblSize + " company: " + company + " desc: " + description)
             var shoe = Shoe(name, dblSize, company, description)
-            shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+            //shoeViewModel = ViewModelProvider(requireActivity()).get(ShoeViewModel::class.java)
+            shoeViewModel = ShoeViewModel()
             shoeViewModel.addShoe(shoe)
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragment2ToShoeListFragment())
         }
