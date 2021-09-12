@@ -28,7 +28,6 @@ class InstructionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_instruction, container, false)
         val binding: FragmentInstructionBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_instruction, container, false)
         binding.continueButton.setOnClickListener { v: View ->

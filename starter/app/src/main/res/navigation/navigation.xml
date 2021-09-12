@@ -18,19 +18,19 @@
     <fragment
         android:id="@+id/welcomeFragment3"
         android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="Shoe Shop Welcome">
+        android:label="Welcome">
         <action
             android:id="@+id/action_welcomeFragment3_to_instructionFragment"
             app:destination="@id/instructionFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/welcomeFragment3"
-            app:popUpToInclusive="false"/>
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
         android:name="com.udacity.shoestore.InstructionFragment"
-        android:label="Shoe Shop Instructions">
+        android:label="Instructions">
         <action
             android:id="@+id/action_instructionFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.ShoeListFragment"
-        android:label="ShoeListFragment" >
+        android:label="Inventory">
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment2"
             app:destination="@id/shoeDetailFragment2"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/shoeDetailFragment2"
         android:name="com.udacity.shoestore.ShoeDetailFragment"
-        android:label="ShoeDetailFragment" >
+        android:label="Add a new shoe!">
         <action
             android:id="@+id/action_shoeDetailFragment2_to_shoeListFragment"
             app:destination="@id/shoeListFragment" />
